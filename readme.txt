@@ -39,19 +39,19 @@ Yes, in fact that is excactly what it was originally designed for!
 
 = My css doesn't seem to have any effect. How do I override my themes default css? =
 
-The Live CSS Preview plugin adds a new class to the body tag called "livecss" for exactly this situation. Most of time you'll want to avoid this, but when necessary you can add .livecss or body.livecss to the beginning of your css declaration and in most cases it will do the trick. 
+The Live CSS Preview plugin adds a new class to the body tag called `livecss` for exactly this situation. Most of time you'll want to avoid this, but when necessary you can add `.livecss` or `body.livecss` to the beginning of your css declaration and in most cases it will do the trick. 
 
 For example, when trying to change the background color of the body tag in Twenty Eleven, the following won't work:
 
-body { background-color:red; }
+`body { background-color:red; }`
 
-Adding the livecss class will override the themes specicifity and force the change:
+Adding the `livecss` class will override the themes specicifity and force the change:
 
-body.livecss { background-color:red; } /* This will work */
+`body.livecss { background-color:red; } /* This will work */`
 
-NOTE: If you deactivate or delete the plugin, the livecss class will no longer be available to code you've added to your style.css file. To maintain this feature beyond the life of the plugin, just add the following code to your functions.php file:
+NOTE: If you deactivate or delete the plugin, the `livecss` class will no longer be available to code you've added to your style.css file. To maintain this feature beyond the life of the plugin, just add the following code to your functions.php file:
 
-function my_body_class_override( $classes ){ 	
+`function my_body_class_override( $classes ){ 	
 	$classes[] = 'livecss';
 	return $classes;	 	
-} add_filter( 'body_class', 'my_body_class_override' );
+} add_filter( 'body_class', 'my_body_class_override' );`
